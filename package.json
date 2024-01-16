@@ -1,7 +1,7 @@
 {
   "name": "xiaohe-nano-emitter",
   "type": "module",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "packageManager": "pnpm@8.14.0",
   "description": "🛴 一个轻量级的事件发射器",
   "author": "xiaohe0601 <HeDianGeng0601@outlook.com>",
