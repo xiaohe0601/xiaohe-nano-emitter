@@ -32,8 +32,12 @@ export default class Emitter<T extends NanoEvents = DefaultNanoEvents> {
     return unbind;
   }
 
-  public clearEvents(): Emitter<T> {
-    this._emitter.events = {};
+  public clearEvents<E extends keyof T>(event?: E): Emitter<T> {
+    if (event != null) {
+      this._emitter.events[event] = [];
+    } else {
+      this._emitter.events = {};
+    }
 
     return this;
   }
