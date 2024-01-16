@@ -1,5 +1,5 @@
 {
-  "name": "xiaohe-nanoevents",
+  "name": "xiaohe-nano-emitter",
   "type": "module",
   "version": "0.0.0",
   "packageManager": "pnpm@8.14.0",
@@ -7,12 +7,12 @@
   "author": "xiaohe0601 <HeDianGeng0601@outlook.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/xiaohe0601",
-  "homepage": "https://github.com/xiaohe0601/xiaohe-nanoevents#readme",
+  "homepage": "https://github.com/xiaohe0601/xiaohe-nano-emitter#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xiaohe0601/xiaohe-nanoevents.git"
+    "url": "git+https://github.com/xiaohe0601/xiaohe-nano-emitter.git"
   },
-  "bugs": "https://github.com/xiaohe0601/xiaohe-nanoevents/issues",
+  "bugs": "https://github.com/xiaohe0601/xiaohe-nano-emitter/issues",
   "keywords": [],
   "sideEffects": false,
   "exports": {
