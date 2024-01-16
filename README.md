@@ -14,8 +14,6 @@
 
 小何同学 / [github@xiaohe0601](https://github.com/xiaohe0601) / [gitee@xiaohe0601](https://gitee.com/xiaohe0601)
 
-### 🎉 特性
-
 ### 🚁 安装
 
 #### PNPM
