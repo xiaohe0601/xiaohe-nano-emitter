@@ -40,19 +40,132 @@ npm install xiaohe-nano-emitter
 
 #### 简单使用
 
-``` javascript
+``` typescript
 import { createNanoEmitter } from "xiaohe-nano-emitter";
 
 const emitter = createNanoEmitter();
 
+// 监听tick事件
 const unbind = emitter.on("tick", (value: number) => {
   console.log("on tick", value);
 });
 
-emitter.emit("tick", 2); // 日志: on tick 2
+// 触发tick事件
+emitter.emit("tick", 2); // 输出日志: on tick 2
 
+// 移除单个监听
 unbind();
-emitter.emit("tick", 2); // 不再打印日志
+
+// 再次尝试触发tick事件
+emitter.emit("tick", 2); // 不再输出日志
+```
+
+#### 类型检查（TypeScript）
+
+``` typescript
+interface SomeEvents {
+  set: (name: string, count: number) => void;
+  tick: () => void;
+}
+
+const emitter = createNanoEmitter<SomeEvents>();
+
+// 正确调用
+emitter.emit("set", "prop", 1);
+emitter.emit("tick");
+
+// 类型检查不通过
+emitter.emit("set", "prop", "1");
+emitter.emit("tick", 2);
+```
+
+#### 移除监听
+
+``` typescript
+const emitter = createNanoEmitter();
+
+const unbind1 = emitter.on("tick", () => {
+  // ...
+});
+
+const unbind2 = emitter.on("tick", () => {
+  // ...
+});
+
+// 移除单个监听，不影响该事件的其他监听（例如此处第二个tick监听仍然会被正常触发）
+unbind1();
+
+// 移除tick事件的所有监听
+emitter.events["tick"] = [];
+// 移除所有事件的所有监听
+emitter.events = {};
+```
+
+#### 单次监听
+
+> 可参考如下代码二次封装，也可以直接使用插件导出的 `Emitter`
+
+``` typescript
+class Ticker {
+
+  constructor() {
+    this.emitter = createNanoEmitter();
+  }
+
+  // ...
+
+  once(event, callback) {
+    const unbind = this.emitter.on(event, (...args) => {
+      unbind();
+      callback(...args);
+    });
+
+    return unbind;
+  }
+
+}
+```
+
+#### Emitter
+
+> 可以直接使用 `Emitter` 以简化使用方式
+
+``` typescript
+import { Emitter } from "xiaohe-nano-emitter";
+
+const emitter = new Emitter();
+
+// 单次监听
+emitter.once("tick", () => {
+  // ...
+});
+
+// 移除所有事件的所有监听
+emitter.clearEvents();
+// 也可以指定移除tick事件的所有监听
+emitter.clearEvents("tick");
+
+// on、emit、unbind等其他使用方式与createNanoEmitter创建的emitter相同
+```
+
+还可以直接继承 `Emitter` 为某个 `class` 添加事件发射能力
+
+``` typescript
+class SomeClazz extends Emitter {
+
+  // ...
+
+  public test(): void {
+    this.emit("test");
+  }
+
+}
+
+const some = new SomeClazz();
+
+some.on("test", () => {
+  // ...
+});
 ```
 
 #### 类型定义
