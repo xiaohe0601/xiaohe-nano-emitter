@@ -1,18 +1,18 @@
 {
-  "name": "pkg-placeholder",
+  "name": "xiaohe-nanoevents",
   "type": "module",
   "version": "0.0.0",
   "packageManager": "pnpm@8.14.0",
-  "description": "_description_",
+  "description": "🛴 一个轻量级的事件发射器",
   "author": "xiaohe0601 <HeDianGeng0601@outlook.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/xiaohe0601",
-  "homepage": "https://github.com/xiaohe0601/pkg-placeholder#readme",
+  "homepage": "https://github.com/xiaohe0601/xiaohe-nanoevents#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xiaohe0601/pkg-placeholder.git"
+    "url": "git+https://github.com/xiaohe0601/xiaohe-nanoevents.git"
   },
-  "bugs": "https://github.com/xiaohe0601/pkg-placeholder/issues",
+  "bugs": "https://github.com/xiaohe0601/xiaohe-nanoevents/issues",
   "keywords": [],
   "sideEffects": false,
   "exports": {
