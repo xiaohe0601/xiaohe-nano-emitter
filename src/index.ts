@@ -1,2 +1,7 @@
-export const one = 1;
-export const two = 2;
+import Emitter from "./emitter";
+
+export * from "./creator";
+
+export {
+  Emitter
+};
