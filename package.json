@@ -4,7 +4,7 @@
   "version": "0.0.3",
   "packageManager": "pnpm@8.14.0",
   "description": "🛴 一个轻量级的事件发射器",
-  "author": "xiaohe0601 <HeDianGeng0601@outlook.com>",
+  "author": "xiaohe0601 <xiaohe0601@outlook.com>",
   "license": "MIT",
   "funding": "https://github.com/sponsors/xiaohe0601",
   "homepage": "https://github.com/xiaohe0601/xiaohe-nano-emitter#readme",
